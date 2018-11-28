@@ -1,0 +1,545 @@
+{% load static wagtailcore_tags %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>MILVETS Systems Technology Inc.</title>    
+        <!-- Plugins CSS -->
+        <link href={% static 'css/plugins/plugins.css' %} rel="stylesheet">
+        <!-- load css for cubeportfolio -->
+        <link rel="stylesheet" type="text/css" href={% static 'cubeportfolio/css/cubeportfolio.min.css' %}>
+        <link href={% static 'css/style.css' %} rel="stylesheet">         
+        <style type="text/css">
+            .anchor{
+                display:block;
+                position:relative;
+                top: -100px;
+                visibility:hidden;
+            }
+            .milvets-line{
+                border-top: 1px solid #ffffff;
+                width: 50%;
+            }
+            .milvets-star{
+                font-size: 43px;
+                color: #ffffff;
+                position: absolute;
+                left: 50%;
+                -webkit-transform: translateX(-50%);
+                transform: translate(-50%,-50%);
+            }
+            .milvets-hover:hover{
+                background-color: #005CAF;
+                color:white;
+            }
+            .subheader{
+                text-align:center;
+                margin-bottom: 2em;
+            }
+            .teaming-columns{
+                -webkit-columns: 100px 3; /* Chrome, Safari, Opera */
+                -moz-columns: 100px 3; /* Firefox */
+                columns: 100px 3;            
+            }
+            .parallax-overlay-clients:before{
+                content:"";
+                width:100%;
+                height: 100%;
+                left:0;
+                top:0;
+                position:absolute;
+                background:rgba(0,0,0,0.4);
+            }
+            .fa-trophy:before{
+                color:#152f79;
+            }
+            html{
+                scroll-behavior: smooth;
+            }
+            .map-responsive{
+                overflow:hidden;
+                padding-bottom:56.25%;
+                position:relative;
+                height:0;
+            }
+            .map-resposive iframe{
+                left:0;
+                top:0;
+                height:100%;
+                width:100%;
+                position:absolute;
+            }
+        </style>     
+    </head>
+    <body>      
+        <div id="preloader">
+            <div id="preloader-inner"></div>
+        </div><!--/preloader-->      
+        <div class="site-overlay"></div>                
+        <div class="container">            
+        <nav class="navbar navbar-expand-lg navbar-light navbar-transparent bg-faded nav-sticky">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img class='logo logo-dark' src={% static 'images/logo.png' %} alt="" style="width:250px">
+                    <img class='logo logo-light hidden-md-down' src={% static 'images/logo-light.png' %} alt="" style="width:250px">
+                </a>
+                <div id="navbarNavDropdown" class="navbar-collapse collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/about">About</a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="/about/#" class="dropdown-item">Our Profile</a></li>
+                                <li><a href="/about/#clients" class="dropdown-item">Our Clients</a></li>
+                                <li><a href="/about/#offices" class="dropdown-item">Offices</a></li>
+                                <li><a href="/about/#awards" class="dropdown-item">Awards</a></li>
+                                <li><a href="/about/#history" class="dropdown-item">History</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/services">Services</a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="/services/#" class="dropdown-item">Our Approach</a></li>
+                                <li><a href="/services/#contractvehicles" class="dropdown-item">Contract Vehicles</a></li>
+                                <li class=" dropdown-submenu dropdown">
+                                    <a tabindex="-1" href="/services/#capabilities" class="dropdown-item">Core Capabilities</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/services/#testmanagement" class="dropdown-item">Test Management</a></li>
+                                        <li><a href="/services/#modelingsimulation" class="dropdown-item">Modeling/simulator & Training</a></li>
+                                        <li><a href="/services/#intel" class="dropdown-item">Intel/Surveillance/Recon</a></li>
+                                        <li><a href="/services/#cybersecurity" class="dropdown-item">Cybersecurity</a></li>
+                                        <li><a href="/services/#systemsanalysis" class="dropdown-item">Systems Analysis/Software Engineering</a></li>
+                                        <li><a href="/services/#508" class="dropdown-item">Assistive Technologies/508</a></li>
+                                        <li><a href="/services/#documentmanagement" class="dropdown-item">Document Imaging & Management</a></li>
+                                        <li><a href="/services/#distancelearning" class="dropdown-item">Distance Learning</a></li>
+                                        <li><a href="/services/#technicaladmin" class="dropdown-item">Technical Administration Services</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Careers</a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="/careers/#" class="dropdown-item">Apply</a></li>
+                                <li class=" dropdown-submenu dropdown">
+                                    <a tabindex="-1" href="/careers/#benefits" class="dropdown-item">Benefits</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/careers/#holidays" class="dropdown-item">Holidays</a></li>
+                                        <li><a href="/careers/#holidaypay" class="dropdown-item">Holiday Pay</a></li>
+                                        <li><a href="/careers/#pto" class="dropdown-item">Paid Time Off</a></li>
+                                        <li><a href="/careers/#healthbenefits" class="dropdown-item">Health Insurance</a></li>
+                                        <li><a href="/careers/#disability" class="dropdown-item">Short and Long Term Disability</a></li>
+                                        <li><a href="/careers/#401k" class="dropdown-item">401(k) Plan</a></li>
+                                    </ul>
+                                </li>
+                                <li class=" dropdown-submenu dropdown">
+                                    <a tabindex="-1" href="/services/#capabilities" class="dropdown-item">Current Employees</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/" class="dropdown-item">Timesheet</a></li>
+                                        <li><a href="/" class="dropdown-item">Web Mail</a></li>
+                                        <li><a href="/" class="dropdown-item">Paystub and W2</a></li>
+                                        <li><a href="/" class="dropdown-item">Box</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" aria-haspopup="false" aria-expanded="false" href="/contact/#">Contact</a>
+                        </li>                                                                          
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Cyber Incubator</a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="blog-contained.html" class="dropdown-item">Contained</a></li>
+                                <li><a href="blog-sidebar-left.html" class="dropdown-item">Left Sidebar</a></li>
+                                <li><a href="blog-sidebar-right.html" class="dropdown-item">Right Sidebar</a></li>
+                                <li><a href="blog-masonry.html" class="dropdown-item">Masonry</a></li>
+                                <li><a href="blog-masonry-sidebar.html" class="dropdown-item">Masonry sidebar</a></li>
+                                <li><a href="blog-lg-post-grid.html" class="dropdown-item">Large post grid</a></li>
+                                <li><a href="blog-timeline.html" class="dropdown-item">Timeline</a></li> 
+                                <li class=" dropdown-submenu dropdown">
+                                    <a tabindex="-1" href="#" class="dropdown-item">Single Post</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="post-image.html" class="dropdown-item">Image</a></li>
+                                        <li><a href="post-gallery.html" class="dropdown-item">Gallery</a></li>
+                                        <li><a href="post-video.html" class="dropdown-item">Video</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li> 
+                    </ul>        
+                </div>
+            </div>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>            
+        </nav>
+        </div>
+        <!-- CONTENT -->
+        <div class="page-titles-img title-space-lg bg-parallax parallax-overlay mb70" data-jarallax-video="https://youtu.be/ftLAnoixI5Y" data-jarallax-element="" data-jarallax-original-styles="null" >
+            <div class="container">
+                <div class="row">
+                    <div class=" col-md-8 ml-auto mr-auto">
+                        <span class="milvets-star">&#9733;</span>                        
+                        <hr class="milvets-line" style="margin-top: 0px; margin-bottom: 0.3rem">
+                        <hr class="milvets-line" style="margin-top: 0px; margin-bottom: 1.5rem">
+                        <h1 class='text-uppercase' style="margin-bottom: 1rem">About</h1>
+                        <hr class="milvets-line" style="margin-top: 0px; margin-bottom: 0.3rem">
+                        <hr class="milvets-line" style="margin-top: 0px; margin-bottom: 1.5rem">
+                    </div>
+                </div>
+            </div>
+        </div><!--page title end-->
+        <div class='container mb40'>
+            <div class='row'>
+                <div class='col-lg-10 ml-auto mr-auto'>
+                    <div class="title-heading1 mb30" style="margin-bottom: 1rem !important">
+                        <a class="anchor" name="profile"></a><h3>Our Profile</h3>                      
+                    </div>
+                    <p class='lead tritary-font mb50 text-center'>
+                        {{ page.profile|richtext }}
+                    </p>
+                </div>
+            </div>
+            <div class="text-center">
+                <img src={% static 'images/sdvosb.jpg' %}>                
+            </div>
+        </div><!--team-->                      
+
+        <div class="bg-parallax parallax-overlay-clients" data-jarallax-video="https://youtu.be/lanbKcP6fFU" data-jarallax-original-styles="null" style="margin-bottom: 5em">
+            <div class="container pt90 pb60">
+                <div class="title-heading1 mb30">
+                    <a class="anchor" name="clients"></a><h3 style="color:white">Our Clients</h3>
+                </div>                
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb30">
+                        <h3 class="text-white mb30" style="margin-bottom:0px !important">Government</h3>
+                        <div class="text-white">
+                            {{ page.government_clients|richtext }}
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb30">
+                        <h3 class="text-white mb30" style="margin-bottom:0px !important">Government:DoD</h3>
+                        <div class="text-white">
+                            {{ page.dod_clients|richtext }}
+                        </div>
+                    </div>
+                    <div class="col-lg-6 mb30">
+                        <h3 class="text-white mb30" style="margin-bottom:0px !important">Commercials</h3>
+                        <div class="text-white">
+                            {{ page.commercial_clients|richtext }}
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div><!--/.Analysis-->
+
+        <div class="container">
+            <div class="row pb50 align-item-center">
+                <div class="col-sm-6 mb40">
+                    <a class="anchor" name="offices"></a><h2>Where we foster excellence</h2>
+                    <div class="lead">
+                        {{ page.locations_blurb|richtext }}
+                    </div>
+                    <a href="#" class="btn btn-primary milvets-hover">Hire us</a>
+                </div>
+                <div class="col-sm-6 mb40">
+                    <div class="map-responsive">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.9900032641176!2d-81.21562128684043!3d28.600076709965904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e768f37d2174f9%3A0x5fceae98971e52bd!2s11825+High+Tech+Ave+%23150%2C+Orlando%2C+FL+32817!5e0!3m2!1sen!2sus!4v1543080858883" width="600" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="row pb50">
+                <div class="col-md-4 mb30">
+                    <h4 class="text-uppercase">
+                        {{ page.hq_name|richtext }}
+                    </h4>
+                        {{ page.hq_details|richtext }}
+                </div>
+                <div class="col-md-4 mb30">
+                    <h4 class="text-uppercase">
+                        {{ page.second_office_name|richtext }}
+                    </h4>
+                        {{ page.second_office_details|richtext }}
+                </div>
+                <div class="col-md-4 mb30">
+                    <h4 class="text-uppercase">
+                        {{ page.third_office_name|richtext }}
+                    </h4>
+                        {{ page.third_office_details|richtext }}
+                </div>
+            </div>
+        </div>
+        <div class='container mb50'>
+            <div class="title-heading1 mb30">
+                <a class="anchor" name="awards"></a><h3>Awards</h3>                       
+            </div>
+            <div class="row special-feature">
+                <div class="col-md-3 col-sm-6 margin20">
+                    <div class="s-feature-box text-center">
+                        <div class="mask-top">
+                            <!-- Icon -->
+                            <i class="fa fa-trophy"></i>
+                            <!-- Title -->
+                            <h4>{{ page.award_one_name|richtext }}</h4>
+                        </div>
+                        <div class="mask-bottom">
+                            <!-- Icon -->
+                            <i class="fa fa-trophy"></i>
+                            <!-- Text -->
+                            <p>{{ page.award_one_details|richtext }}</p>
+                        </div>
+                    </div>
+                </div><!--services col-->
+                <div class="col-md-3 col-sm-6 margin20">
+                    <div class="s-feature-box text-center">
+                        <div class="mask-top">
+                            <!-- Icon -->
+                            <i class="fa fa-trophy"></i>
+                            <!-- Title -->
+                            <h4>{{ page.award_two_name|richtext }}</h4>
+                        </div>
+                        <div class="mask-bottom">
+                            <!-- Icon -->
+                            <i class="fa fa-trophy"></i>
+                            <!-- Text -->
+                            <p>{{ page.award_two_details|richtext }}</p>
+                        </div>
+                    </div>
+                </div><!--services col-->
+                <div class="col-md-3 col-sm-6 margin20">
+                    <div class="s-feature-box text-center">
+                        <div class="mask-top">
+                            <!-- Icon -->
+                            <i class="fa fa-trophy"></i>
+                            <!-- Title -->
+                            <h4>{{ page.award_three_name|richtext }}</h4>
+                        </div>
+                        <div class="mask-bottom">
+                            <!-- Icon -->
+                            <i class="fa fa-trophy"></i>
+                            <!-- Text -->
+                            <p>{{ page.award_three_details|richtext }}</p>
+                        </div>
+                    </div>
+                </div><!--services col-->
+                <div class="col-md-3 col-sm-6 margin20">
+                    <div class="s-feature-box text-center">
+                        <div class="mask-top">
+                            <!-- Icon -->
+                            <i class="fa fa-trophy"></i>
+                            <!-- Title -->
+                            <h4>{{ page.award_four_name|richtext }}</h4>
+                        </div>
+                        <div class="mask-bottom">
+                            <!-- Icon -->
+                            <i class="fa fa-trophy"></i>
+                            <!-- Text -->
+                            <p>{{ page.award_four_details|richtext }}</p>
+                        </div>
+                    </div>
+                </div><!--services col-->
+                <div class="col-md-3 col-sm-6 margin20">
+                    <div class="s-feature-box text-center">
+                        <div class="mask-top">
+                            <!-- Icon -->
+                            <i class="fa fa-trophy"></i>
+                            <!-- Title -->
+                            <h4>{{ page.award_five_name|richtext }}</h4>
+                        </div>
+                        <div class="mask-bottom">
+                            <!-- Icon -->
+                            <i class="fa fa-trophy"></i>
+                            <!-- Text -->
+                            <p>{{ page.award_five_details|richtext }}</p>
+                        </div>
+                    </div>
+                </div><!--services col-->
+                <div class="col-md-3 col-sm-6 margin20">
+                    <div class="s-feature-box text-center">
+                        <div class="mask-top">
+                            <!-- Icon -->
+                            <i class="fa fa-trophy"></i>
+                            <!-- Title -->
+                            <h4>{{ page.award_six_name|richtext }}</h4>
+                        </div>
+                        <div class="mask-bottom">
+                            <!-- Icon -->
+                            <i class="fa fa-trophy"></i>
+                            <!-- Text -->
+                            <p>{{ page.award_six_details|richtext }}</p>
+                        </div>
+                    </div>
+                </div><!--services col-->                                                                
+
+            </div>
+        </div>
+        <div class='bg-faded pt100 pb100'>
+            <div class='container text-center'>
+                <div class='row'>
+                    <div class='col-lg-8 col-md-10 ml-auto mr-auto'>
+                        <a class="anchor" name="history"></a><h2 class='mb10'>History</h2>
+                        <div class='mb20 lead'>
+                            {{ page.history|richtext }}
+                        </div>
+                        <a target='_blank' href='/contact' class='btn btn-lg btn-rounded btn-outline-primary'>Meet the Team</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CONTENT END -->
+        <footer class="footer footer-standard pt50 pb10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb40">
+                        <h3>MILVETS Systems Technology, Inc.</h3>
+                        <p>Founded & Incorporated in 1986.<br>
+                        Service-Disabled Veteran Owned Small Business<br>
+                        Small Disadvantaged Business<br>
+                        DUNS Number: 153887773<br>
+                        CAGE Code: 0NCB3</p>
+                        <a href="#" class="btn btn-white-outline btn-sm">Learn More</a>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb40">
+                        <h3>Quick links</h3>
+                        <ul class="list-unstyled footer-list-item">
+                            <li>
+                                <a href="#">
+                                    About
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    News
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    FAQS
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Contact
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Term & conditions
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Privacy & policy
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb40">
+                        <h3>Latest News</h3>
+                        <ul class="list-unstyled latest-news">
+                            <li class="media">
+                                <a href="#"> <img class="d-flex mr-3 img-fluid" width="64" src={% static 'images/img1.jpg' %} alt="Generic placeholder image"></a>
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"><a href="#">Beautiful Sofa lamp at low price</a></h5>
+                                    April 05, 2017
+                                </div>
+                            </li>
+                            <li class="media my-3">
+                                <a href="#"> <img class="d-flex mr-3 img-fluid" width="64" src={% static 'images/img2.jpg' %} alt="Generic placeholder image"></a>
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"><a href="#">Lorem ipsum dolor sit amet</a></h5>
+                                    Jan 05, 2017
+                                </div>
+                            </li>
+                            <li class="media">
+                                <a href="#"> <img class="d-flex mr-3 img-fluid" width="64" src={% static 'images/img5.jpg' %} alt="Generic placeholder image"></a>
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"><a href="#">New awesome features of bootstrap 4</a></h5>
+                                    March 15, 2017
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb40">
+                        <h3>Headquarters</h3>
+                        <img src={% static 'images/map-img.png' %} alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </footer><!--/footer-->
+        <div class="footer-bottomAlt">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="clearfix">
+                            <a href="https://www.facebook.com/MILVETS1/" class="social-icon-sm si-dark si-facebook si-dark-round">
+                                <i class="fa fa-facebook"></i>
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="https://twitter.com/MILVETS1" class="social-icon-sm si-dark si-twitter si-dark-round">
+                                <i class="fa fa-twitter"></i>
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/milvets-systems-technology-inc." class="social-icon-sm si-dark si-linkedin si-dark-round">
+                                <i class="fa fa-linkedin"></i>
+                                <i class="fa fa-linkedin"></i>
+                            </a>  
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <span>&copy; Copyright 2018. All Right Reserved</span>
+                    </div>
+                </div>
+            </div>
+        </div><!--/footer bottom-->
+
+        <!--back to top-->
+        <a href="#" class="back-to-top hidden-xs-down" id="back-to-top"><i class="ti-angle-up"></i></a>
+        <!-- jQuery first, then Tether, then Bootstrap JS. -->
+        <script src={% static 'js/plugins/plugins.js' %}></script> 
+        <script src={% static 'js/assan.custom.js' %}></script> 
+        <!-- load cubeportfolio -->
+        <script type="text/javascript" src={% static 'cubeportfolio/js/jquery.cubeportfolio.min.js' %}></script>
+        <script>
+            //projects
+            (function ($, window, document, undefined) {
+                'use strict';
+
+                // init cubeportfolio
+                $('#js-grid-lightbox-gallery').cubeportfolio({
+                    filters: '#js-filters-lightbox-gallery1, #js-filters-lightbox-gallery2',
+                    layoutMode: 'grid',
+                    mediaQueries: [{
+                            width: 1500,
+                            cols: 4
+                        }, {
+                            width: 1100,
+                            cols: 3
+                        }, {
+                            width: 800,
+                            cols: 3
+                        }, {
+                            width: 480,
+                            cols: 2,
+                            options: {
+                                caption: ''
+                            }
+                        }],
+                    defaultFilter: '*',
+                    animationType: 'flipOutDelay',
+                    gapHorizontal: 15,
+                    gapVertical: 15,
+                    gridAdjustment: 'responsive',
+                    caption: 'overlayBottomAlong',
+                    displayType: 'sequentially',
+                    displayTypeSpeed: 100,
+                    // lightbox
+                    lightboxDelegate: '.cbp-lightbox',
+                    lightboxGallery: true,
+                    lightboxTitleSrc: 'data-title',
+                    lightboxCounter: '<div class="cbp-popup-lightbox-counter">{{current}} of {{total}}</div>'
+                });
+            })(jQuery, window, document);
+        </script>    
+    </body>
+</html>

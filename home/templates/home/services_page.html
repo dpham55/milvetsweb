@@ -1,0 +1,547 @@
+{% load static wagtailcore_tags %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>MILVETS Systems Technology Inc.</title>    
+        <!-- Plugins CSS -->
+        <link href={% static 'css/plugins/plugins.css' %} rel="stylesheet">
+        <!-- load css for cubeportfolio -->
+        <link rel="stylesheet" type="text/css" href={% static 'cubeportfolio/css/cubeportfolio.min.css' %}>
+        <link href={% static 'css/style.css' %} rel="stylesheet">          
+        <style type="text/css">
+            .anchor{
+                display:block;
+                position:relative;
+                top: -100px;
+                visibility:hidden;
+            }
+            .milvets-line{
+                border-top: 1px solid #ffffff;
+                width: 50%;
+            }
+            .milvets-star{
+                font-size: 43px;
+                color: #ffffff;
+                position: absolute;
+                left: 50%;
+                -webkit-transform: translateX(-50%);
+                transform: translate(-50%,-50%);
+            }
+            .milvets-hover:hover{
+                background-color: #005CAF;
+                color:white;
+            }
+            .subheader{
+                text-align:center;
+                margin-bottom: 2em;
+            }
+            .teaming-columns{
+                -webkit-columns: 100px 2; /* Chrome, Safari, Opera */
+                -moz-columns: 100px 2; /* Firefox */
+                columns: 100px 2;            
+            }
+            .parallax-overlay-clients:before{
+                content:"";
+                width:100%;
+                height: 100%;
+                left:0;
+                top:0;
+                position:absolute;
+                background:rgba(0,0,0,0.4);
+            }
+            .fa-trophy:before{
+                color:#152f79;
+            }
+            html{
+                scroll-behavior: smooth;
+            }            
+        </style>     
+    </head>
+    <body>      
+        <div id="preloader">
+            <div id="preloader-inner"></div>
+        </div><!--/preloader-->             
+        <div class="site-overlay"></div>                
+        <div class="container">            
+        <nav class="navbar navbar-expand-lg navbar-light navbar-transparent bg-faded nav-sticky">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img class='logo logo-dark' src={% static 'images/logo.png' %} alt="" style="width:250px">
+                    <img class='logo logo-light hidden-md-down' src={% static 'images/logo-light.png' %} alt="" style="width:250px">
+                </a>
+                <div id="navbarNavDropdown" class="navbar-collapse collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/about">About</a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="/about/#" class="dropdown-item">Our Profile</a></li>
+                                <li><a href="/about/#clients" class="dropdown-item">Our Clients</a></li>
+                                <li><a href="/about/#offices" class="dropdown-item">Offices</a></li>
+                                <li><a href="/about/#awards" class="dropdown-item">Awards</a></li>
+                                <li><a href="/about/#history" class="dropdown-item">History</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/services">Services</a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="/services/#" class="dropdown-item">Our Approach</a></li>
+                                <li><a href="/services/#contractvehicles" class="dropdown-item">Contract Vehicles</a></li>
+                                <li class=" dropdown-submenu dropdown">
+                                    <a tabindex="-1" href="/services/#capabilities" class="dropdown-item">Core Capabilities</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/services/#testmanagement" class="dropdown-item">Test Management</a></li>
+                                        <li><a href="/services/#modelingsimulation" class="dropdown-item">Modeling/simulator & Training</a></li>
+                                        <li><a href="/services/#intel" class="dropdown-item">Intel/Surveillance/Recon</a></li>
+                                        <li><a href="/services/#cybersecurity" class="dropdown-item">Cybersecurity</a></li>
+                                        <li><a href="/services/#systemsanalysis" class="dropdown-item">Systems Analysis/Software Engineering</a></li>
+                                        <li><a href="/services/#508" class="dropdown-item">Assistive Technologies/508</a></li>
+                                        <li><a href="/services/#documentmanagement" class="dropdown-item">Document Imaging & Management</a></li>
+                                        <li><a href="/services/#distancelearning" class="dropdown-item">Distance Learning</a></li>
+                                        <li><a href="/services/#technicaladmin" class="dropdown-item">Technical Administration Services</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Careers</a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="/careers/#" class="dropdown-item">Apply</a></li>
+                                <li class=" dropdown-submenu dropdown">
+                                    <a tabindex="-1" href="/careers/#benefits" class="dropdown-item">Benefits</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/careers/#holidays" class="dropdown-item">Holidays</a></li>
+                                        <li><a href="/careers/#holidaypay" class="dropdown-item">Holiday Pay</a></li>
+                                        <li><a href="/careers/#pto" class="dropdown-item">Paid Time Off</a></li>
+                                        <li><a href="/careers/#healthbenefits" class="dropdown-item">Health Insurance</a></li>
+                                        <li><a href="/careers/#disability" class="dropdown-item">Short and Long Term Disability</a></li>
+                                        <li><a href="/careers/#401k" class="dropdown-item">401(k) Plan</a></li>
+                                    </ul>
+                                </li>
+                                <li class=" dropdown-submenu dropdown">
+                                    <a tabindex="-1" href="/services/#capabilities" class="dropdown-item">Current Employees</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/" class="dropdown-item">Timesheet</a></li>
+                                        <li><a href="/" class="dropdown-item">Web Mail</a></li>
+                                        <li><a href="/" class="dropdown-item">Paystub and W2</a></li>
+                                        <li><a href="/" class="dropdown-item">Box</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" aria-haspopup="false" aria-expanded="false" href="/contact/#">Contact</a>
+                        </li>                                                                          
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Cyber Incubator</a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="blog-contained.html" class="dropdown-item">Contained</a></li>
+                                <li><a href="blog-sidebar-left.html" class="dropdown-item">Left Sidebar</a></li>
+                                <li><a href="blog-sidebar-right.html" class="dropdown-item">Right Sidebar</a></li>
+                                <li><a href="blog-masonry.html" class="dropdown-item">Masonry</a></li>
+                                <li><a href="blog-masonry-sidebar.html" class="dropdown-item">Masonry sidebar</a></li>
+                                <li><a href="blog-lg-post-grid.html" class="dropdown-item">Large post grid</a></li>
+                                <li><a href="blog-timeline.html" class="dropdown-item">Timeline</a></li> 
+                                <li class=" dropdown-submenu dropdown">
+                                    <a tabindex="-1" href="#" class="dropdown-item">Single Post</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="post-image.html" class="dropdown-item">Image</a></li>
+                                        <li><a href="post-gallery.html" class="dropdown-item">Gallery</a></li>
+                                        <li><a href="post-video.html" class="dropdown-item">Video</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li> 
+                    </ul>        
+                </div>
+            </div>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>            
+        </nav>
+        </div>
+        <!-- CONTENT -->
+        <div class="page-titles-img title-space-lg bg-parallax parallax-overlay mb70" data-jarallax-video="https://youtu.be/8jxCw2D0wyw" data-jarallax-element="" data-jarallax-original-styles="null" >
+            <div class="container">
+                <div class="row">
+                    <div class=" col-md-8 ml-auto mr-auto">
+                        <span class="milvets-star">&#9733;</span>                        
+                        <hr class="milvets-line" style="margin-top: 0px; margin-bottom: 0.3rem">
+                        <hr class="milvets-line" style="margin-top: 0px; margin-bottom: 1.5rem">
+                        <h1 class='text-uppercase' style="margin-bottom: 1rem">Services</h1>
+                        <hr class="milvets-line" style="margin-top: 0px; margin-bottom: 0.3rem">
+                        <hr class="milvets-line" style="margin-top: 0px; margin-bottom: 1.5rem">
+                    </div>
+                </div>
+            </div>
+        </div><!--page title end-->
+
+        <div class='container mb40'>
+            <div class='row'>
+                <div class='col-lg-10 ml-auto mr-auto'>
+                    <div class="title-heading1 mb30" style="margin-bottom: 1rem !important">
+                        <a class="anchor" name="approach"></a><h3>Our Approach</h3>                      
+                    </div>
+                    <div class='lead mb50 text-center'>
+                        {{ page.approach|richtext }}
+                    </div>
+                </div>
+            </div>
+        </div>                      
+
+        <div class='container no-padding mb70'>
+            <div class='row no-margin mb70'>
+                <div class='col-md-4 mb30'>
+                    <div class="media pos-relative">
+                        <div class="d-flex mr-3">
+                            <i class="icon-profile-male fa-2x"></i>  
+                        </div>
+                        <div class="media-body ">
+                            <h4 class="mt-0 mb10  text-uppercase">Personnel</h4>
+                            {{ page.personnel_blurb|richtext }}
+                        </div>
+                    </div>
+                </div>
+                <div class='col-md-4 mb30'>
+                    <div class="media pos-relative">
+                        <div class="d-flex mr-3">
+                            <i class="icon-strategy fa-2x"></i>  
+                        </div>
+                        <div class="media-body">
+                            <h4 class="mt-0 mb10 text-uppercase">Processes</h4>
+                            {{ page.processes_blurb|richtext }}
+                        </div>
+                    </div>
+                </div>
+                <div class='col-md-4 mb30'>
+                    <div class="media pos-relative">
+                        <div class="d-flex mr-3">
+                            <i class="icon-linegraph fa-2x"></i>  
+                        </div>
+                        <div class="media-body ">
+                            <h4 class="mt-0 mb10  text-uppercase">Performance</h4>
+                            {{ page.performance_blurb|richtext }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+
+        <div class="container mb50">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb30">
+                    <a class="anchor" name="contractvehicles"></a><h3 class="mb20">Contract Vehicles</h3>
+                    <p class="lead">
+                        {{ page.contract_vehicles_blurb|richtext }}
+                    </p>
+                    <p>Our contract vehicles:</p>
+                    <ul class="list-unstyled list-icon mb20">
+                        {{ page.contract_vehicles_list|richtext }}
+                    </ul>
+                </div>
+                <div class="col-md-6 mb30 text-center">
+                    <img src={% static 'images/sketch2.jpg' %} alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-parallax parallax-overlay-clients" data-jarallax-video="https://youtu.be/zPzsinb6cPs" data-jarallax-original-styles="null">
+            <div class="container pt90 pb60">
+                <div class="title-heading1 mb30" style="margin-bottom:1em !important">
+                    <a class="anchor" name="capabilities"></a><h3 style="color:white">Core Capabilities</h3>
+                </div>                
+                <div class="row align-items-center">
+                    <div class="col-lg-9 ml-auto mr-auto">
+                        <div class="teaming-columns text-white">
+                            {{ page.core_capabilities_list|richtext }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="pt90 pb50 container">
+            <div class="title-heading1 mb40">
+                <h3>Past Performance</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mb40">
+                    <div class="media icon-simple">
+                        <div class="d-flex mr-3">
+                            <i class="icon-gears fa-3x text-primary"></i>  
+                        </div>
+                        <div class="media-body">
+                            <a class="anchor" name="testmanagement"></a><h4 class="mt-0 mb10">Test Management</h4>
+                            {{ page.test_management_pastperf|richtext }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mb40">
+                    <div class="media icon-simple">
+                        <div class="d-flex mr-3">
+                            <i class="icon-puzzle fa-3x text-primary"></i>  
+                        </div>
+                        <div class="media-body">
+                            <a class="anchor" name="modelingsimulation"></a><h4 class="mt-0 mb10">Modeling/Simulation & Training</h4>
+                            {{ page.modeling_simulation_pastperf|richtext }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mb40">
+                    <div class="media icon-simple">
+                        <div class="d-flex mr-3">
+                            <i class="icon-magnifying-glass fa-3x text-primary"></i>  
+                        </div>
+                        <div class="media-body">
+                            <a class="anchor" name="intel"></a><h4 class="mt-0 mb10">Intelligence, Surveillance, and Reconnaissance</h4>
+                            {{ page.intel_pastperf|richtext }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mb40">
+                    <div class="media icon-simple">
+                        <div class="d-flex mr-3">
+                            <i class="icon-shield fa-3x text-primary"></i>  
+                        </div>
+                        <div class="media-body">
+                            <a class="anchor" name="cybersecurity"></a><h4 class="mt-0 mb10">Cybersecurity</h4>
+                            {{ page.cybersecurity_pastperf|richtext }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mb40">
+                    <div class="media icon-simple">
+                        <div class="d-flex mr-3">
+                            <i class="icon-layers fa-3x text-primary"></i>  
+                        </div>
+                        <div class="media-body">
+                            <a class="anchor" name="systemsanalysis"></a><h4 class="mt-0 mb10">Systems Analysis/Software Engineering</h4>
+                            {{ page.systems_analysis_eng_pastperf|richtext }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mb40">
+                    <div class="media icon-simple">
+                        <div class="d-flex mr-3">
+                            <i class="icon-chat fa-3x text-primary"></i>  
+                        </div>
+                        <div class="media-body">
+                            <a class="anchor" name="508"></a><h4 class="mt-0 mb10">Assistive Technologies/508</h4>
+                            {{ page.assistive_tech_pastperf|richtext }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mb40">
+                    <div class="media icon-simple">
+                        <div class="d-flex mr-3">
+                            <i class="icon-documents fa-3x text-primary"></i>  
+                        </div>
+                        <div class="media-body">
+                            <a class="anchor" name="documentmanagement"></a><h4 class="mt-0 mb10">Document Imaging & Management</h4>
+                            {{ page.document_management_pastperf|richtext }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mb40">
+                    <div class="media icon-simple">
+                        <div class="d-flex mr-3">
+                            <i class="icon-pencil fa-3x text-primary"></i>  
+                        </div>
+                        <div class="media-body">
+                            <a class="anchor" name="distancelearning"></a><h4 class="mt-0 mb10">Distance Learning</h4>
+                            {{ page.distance_learning_pastperf|richtext }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 mb40">
+                    <div class="media icon-simple">
+                        <div class="d-flex mr-3">
+                            <i class="icon-clipboard fa-3x text-primary"></i>  
+                        </div>
+                        <div class="media-body">
+                            <a class="anchor" name="technicaladmin"></a><h4 class="mt-0 mb10">Technical Administration Services</h4>
+                            {{ page.technical_admin_pastperf|richtext }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+            </div>
+        </div><!--Past Performance-->        
+
+
+        <!-- CONTENT END -->
+        <footer class="footer footer-standard pt50 pb10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb40">
+                        <h3>MILVETS Systems Technology, Inc.</h3>
+                        <p>Founded & Incorporated in 1986.<br>
+                        Service-Disabled Veteran Owned Small Business<br>
+                        Small Disadvantaged Business<br>
+                        DUNS Number: 153887773<br>
+                        CAGE Code: 0NCB3</p>
+                        <a href="#" class="btn btn-white-outline btn-sm">Learn More</a>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb40">
+                        <h3>Quick links</h3>
+                        <ul class="list-unstyled footer-list-item">
+                            <li>
+                                <a href="#">
+                                    About
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    News
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    FAQS
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Contact
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Term & conditions
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Privacy & policy
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb40">
+                        <h3>Latest News</h3>
+                        <ul class="list-unstyled latest-news">
+                            <li class="media">
+                                <a href="#"> <img class="d-flex mr-3 img-fluid" width="64" src={% static 'images/img1.jpg' %} alt="Generic placeholder image"></a>
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"><a href="#">Beautiful Sofa lamp at low price</a></h5>
+                                    April 05, 2017
+                                </div>
+                            </li>
+                            <li class="media my-3">
+                                <a href="#"> <img class="d-flex mr-3 img-fluid" width="64" src={% static 'images/img2.jpg' %} alt="Generic placeholder image"></a>
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"><a href="#">Lorem ipsum dolor sit amet</a></h5>
+                                    Jan 05, 2017
+                                </div>
+                            </li>
+                            <li class="media">
+                                <a href="#"> <img class="d-flex mr-3 img-fluid" width="64" src={% static 'images/img5.jpg' %} alt="Generic placeholder image"></a>
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1"><a href="#">New awesome features of bootstrap 4</a></h5>
+                                    March 15, 2017
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb40">
+                        <h3>Offices</h3>
+                        <img src={% static 'images/map-img.png' %} alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </footer><!--/footer-->
+        <div class="footer-bottomAlt">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="clearfix">
+                            <a href="https://www.facebook.com/MILVETS1/" class="social-icon-sm si-dark si-facebook si-dark-round">
+                                <i class="fa fa-facebook"></i>
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="https://twitter.com/MILVETS1" class="social-icon-sm si-dark si-twitter si-dark-round">
+                                <i class="fa fa-twitter"></i>
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/milvets-systems-technology-inc." class="social-icon-sm si-dark si-linkedin si-dark-round">
+                                <i class="fa fa-linkedin"></i>
+                                <i class="fa fa-linkedin"></i>
+                            </a>  
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <span>&copy; Copyright 2018. All Right Reserved</span>
+                    </div>
+                </div>
+            </div>
+        </div><!--/footer bottom-->
+
+        <!--back to top-->
+        <a href="#" class="back-to-top hidden-xs-down" id="back-to-top"><i class="ti-angle-up"></i></a>
+        <!-- jQuery first, then Tether, then Bootstrap JS. -->
+        <script src={% static 'js/plugins/plugins.js' %}></script> 
+        <script src={% static 'js/assan.custom.js' %}></script> 
+        <!-- load cubeportfolio -->
+        <script type="text/javascript" src={% static 'cubeportfolio/js/jquery.cubeportfolio.min.js' %}></script>
+        <script>
+            //projects
+            (function ($, window, document, undefined) {
+                'use strict';
+
+                // init cubeportfolio
+                $('#js-grid-lightbox-gallery').cubeportfolio({
+                    filters: '#js-filters-lightbox-gallery1, #js-filters-lightbox-gallery2',
+                    layoutMode: 'grid',
+                    mediaQueries: [{
+                            width: 1500,
+                            cols: 4
+                        }, {
+                            width: 1100,
+                            cols: 3
+                        }, {
+                            width: 800,
+                            cols: 3
+                        }, {
+                            width: 480,
+                            cols: 2,
+                            options: {
+                                caption: ''
+                            }
+                        }],
+                    defaultFilter: '*',
+                    animationType: 'flipOutDelay',
+                    gapHorizontal: 15,
+                    gapVertical: 15,
+                    gridAdjustment: 'responsive',
+                    caption: 'overlayBottomAlong',
+                    displayType: 'sequentially',
+                    displayTypeSpeed: 100,
+                    // lightbox
+                    lightboxDelegate: '.cbp-lightbox',
+                    lightboxGallery: true,
+                    lightboxTitleSrc: 'data-title',
+                    lightboxCounter: '<div class="cbp-popup-lightbox-counter">{{current}} of {{total}}</div>'
+                });
+            })(jQuery, window, document);
+        </script>    
+    </body>
+</html>
