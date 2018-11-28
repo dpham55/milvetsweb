@@ -22,6 +22,7 @@ class AboutPage(Page):
     government_clients = RichTextField(blank=True)
     dod_clients = RichTextField(blank=True)
     commercial_clients = RichTextField(blank=True)
+    locations_blurb = RichTextField(blank=True)
     hq_name = RichTextField(blank=True)
     hq_details = RichTextField(blank=True)
     second_office_name = RichTextField(blank=True)
@@ -47,6 +48,7 @@ class AboutPage(Page):
     	FieldPanel('government_clients',classname="full"),
     	FieldPanel('dod_clients',classname="full"),
     	FieldPanel('commercial_clients',classname="full"),
+        FieldPanel('locations_blurb',classname="full"),
     	FieldPanel('hq_name',classname="full"),
     	FieldPanel('hq_details',classname="full"),
     	FieldPanel('second_office_name',classname="full"),
@@ -138,4 +140,18 @@ class ContactPage(Page):
     	FieldPanel('contractvehicles_contacts',classname="full"),
     	FieldPanel('hr_contacts',classname="full"),
     	FieldPanel('general_contacts',classname="full"),
-    ]    
+    ]
+
+
+class ContactPage(Page):
+    bd_contacts = RichTextField(blank=True)
+    contractvehicles_contacts = RichTextField(blank=True)
+    hr_contacts = RichTextField(blank=True)
+    general_contacts = RichTextField(blank=True)                                   
+
+    content_panels = Page.content_panels + [
+        FieldPanel('bd_contacts',classname="full"),
+        FieldPanel('contractvehicles_contacts',classname="full"),
+        FieldPanel('hr_contacts',classname="full"),
+        FieldPanel('general_contacts',classname="full"),
+    ]
