@@ -147,23 +147,12 @@
                             <a class="nav-link dropdown-toggle" aria-haspopup="false" aria-expanded="false" href="/contact/#">Contact</a>
                         </li>                                                                          
                         <li class="nav-item dropdown">
-                            <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Cyber Incubator</a>
+                            <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="/cyber-incubator/#">Cyber Incubator</a>
                             <ul class="dropdown-menu dropdown-menu-right">
-                                <li><a href="blog-contained.html" class="dropdown-item">Contained</a></li>
-                                <li><a href="blog-sidebar-left.html" class="dropdown-item">Left Sidebar</a></li>
-                                <li><a href="blog-sidebar-right.html" class="dropdown-item">Right Sidebar</a></li>
-                                <li><a href="blog-masonry.html" class="dropdown-item">Masonry</a></li>
-                                <li><a href="blog-masonry-sidebar.html" class="dropdown-item">Masonry sidebar</a></li>
-                                <li><a href="blog-lg-post-grid.html" class="dropdown-item">Large post grid</a></li>
-                                <li><a href="blog-timeline.html" class="dropdown-item">Timeline</a></li> 
-                                <li class=" dropdown-submenu dropdown">
-                                    <a tabindex="-1" href="#" class="dropdown-item">Single Post</a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="post-image.html" class="dropdown-item">Image</a></li>
-                                        <li><a href="post-gallery.html" class="dropdown-item">Gallery</a></li>
-                                        <li><a href="post-video.html" class="dropdown-item">Video</a></li>
-                                    </ul>
-                                </li>
+                                <li><a href="/cyber-incubator/#overview" class="dropdown-item">Program Overview</a></li>
+                                <li><a href="/cyber-incubator/#description" class="dropdown-item">Internship Description</a></li>
+                                <li><a href="/cyber-incubator/#expectations" class="dropdown-item">Participant Expectations</a></li>
+                                <li><a href="/cyber-incubator/#expectations" class="dropdown-item">Program Benefits</a></li>
                             </ul>
                         </li> 
                     </ul>        
@@ -189,6 +178,7 @@
                 </div>
             </div>
         </div><!--page title end-->
+        
         <div class='container mb40'>
             <div class='row'>
                 <div class='col-lg-10 ml-auto mr-auto'>
@@ -203,7 +193,7 @@
             <div class="text-center">
                 <img src={% static 'images/sdvosb.jpg' %}>                
             </div>
-        </div><!--team-->                      
+        </div>                    
 
         <div class="bg-parallax parallax-overlay-clients" data-jarallax-video="https://youtu.be/lanbKcP6fFU" data-jarallax-original-styles="null" style="margin-bottom: 5em">
             <div class="container pt90 pb60">
@@ -213,20 +203,26 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 mb30">
                         <h3 class="text-white mb30" style="margin-bottom:0px !important">Government</h3>
-                        <div class="text-white">
-                            {{ page.government_clients|richtext }}
-                        </div>
+                        <ul class="text-white">
+                            {% for clients in page.government_clients.all %}
+                                <li>{{ clients.client_name }}</li>
+                            {% endfor %}
+                        </ul>
                     </div>
                     <div class="col-lg-6 mb30">
                         <h3 class="text-white mb30" style="margin-bottom:0px !important">Government:DoD</h3>
                         <div class="text-white">
-                            {{ page.dod_clients|richtext }}
+                            {% for clients in page.dod_clients.all %}
+                                <li>{{ clients.client_name }}</li>
+                            {% endfor %}
                         </div>
                     </div>
                     <div class="col-lg-6 mb30">
                         <h3 class="text-white mb30" style="margin-bottom:0px !important">Commercial</h3>
                         <div class="text-white">
-                            {{ page.commercial_clients|richtext }}
+                            {% for clients in page.commercial_clients.all %}
+                                <li>{{ clients.client_name }}</li>
+                            {% endfor %}
                         </div>
                     </div>                    
                 </div>
@@ -240,7 +236,7 @@
                     <div class="lead">
                         {{ page.locations_blurb|richtext }}
                     </div>
-                    <a href="#" class="btn btn-primary milvets-hover">Hire us</a>
+                    <a href="/contact" class="btn btn-primary milvets-hover">Hire us</a>
                 </div>
                 <div class="col-sm-6 mb40">
                     <div class="map-responsive">
@@ -249,24 +245,16 @@
                 </div>
             </div>
             <div class="row pb50">
+                {% for location in page.office_locations.all %}
                 <div class="col-md-4 mb30">
                     <h4 class="text-uppercase">
-                        {{ page.hq_name|richtext }}
+                        {{ location.office_name }}
                     </h4>
-                        {{ page.hq_details|richtext }}
+                        {{ location.office_address|striptags }}</br>
+                        Phone: {{ location.office_phone }}<br/>
+                        Fax: {{ location.office_fax }}
                 </div>
-                <div class="col-md-4 mb30">
-                    <h4 class="text-uppercase">
-                        {{ page.second_office_name|richtext }}
-                    </h4>
-                        {{ page.second_office_details|richtext }}
-                </div>
-                <div class="col-md-4 mb30">
-                    <h4 class="text-uppercase">
-                        {{ page.third_office_name|richtext }}
-                    </h4>
-                        {{ page.third_office_details|richtext }}
-                </div>
+                {% endfor %}
             </div>
         </div>
         <div class='container mb50'>
@@ -274,103 +262,24 @@
                 <a class="anchor" name="awards"></a><h3>Awards</h3>                       
             </div>
             <div class="row special-feature">
+                {% for award in page.awards.all %}
                 <div class="col-md-3 col-sm-6 margin20">
                     <div class="s-feature-box text-center">
                         <div class="mask-top">
                             <!-- Icon -->
                             <i class="fa fa-trophy"></i>
                             <!-- Title -->
-                            <h4>{{ page.award_one_name|richtext }}</h4>
+                            <h4>{{ award.award_name }}</h4>
                         </div>
                         <div class="mask-bottom">
                             <!-- Icon -->
                             <i class="fa fa-trophy"></i>
                             <!-- Text -->
-                            <p>{{ page.award_one_details|richtext }}</p>
+                            <p>{{ award.award_description }}</p>
                         </div>
                     </div>
-                </div><!--services col-->
-                <div class="col-md-3 col-sm-6 margin20">
-                    <div class="s-feature-box text-center">
-                        <div class="mask-top">
-                            <!-- Icon -->
-                            <i class="fa fa-trophy"></i>
-                            <!-- Title -->
-                            <h4>{{ page.award_two_name|richtext }}</h4>
-                        </div>
-                        <div class="mask-bottom">
-                            <!-- Icon -->
-                            <i class="fa fa-trophy"></i>
-                            <!-- Text -->
-                            <p>{{ page.award_two_details|richtext }}</p>
-                        </div>
-                    </div>
-                </div><!--services col-->
-                <div class="col-md-3 col-sm-6 margin20">
-                    <div class="s-feature-box text-center">
-                        <div class="mask-top">
-                            <!-- Icon -->
-                            <i class="fa fa-trophy"></i>
-                            <!-- Title -->
-                            <h4>{{ page.award_three_name|richtext }}</h4>
-                        </div>
-                        <div class="mask-bottom">
-                            <!-- Icon -->
-                            <i class="fa fa-trophy"></i>
-                            <!-- Text -->
-                            <p>{{ page.award_three_details|richtext }}</p>
-                        </div>
-                    </div>
-                </div><!--services col-->
-                <div class="col-md-3 col-sm-6 margin20">
-                    <div class="s-feature-box text-center">
-                        <div class="mask-top">
-                            <!-- Icon -->
-                            <i class="fa fa-trophy"></i>
-                            <!-- Title -->
-                            <h4>{{ page.award_four_name|richtext }}</h4>
-                        </div>
-                        <div class="mask-bottom">
-                            <!-- Icon -->
-                            <i class="fa fa-trophy"></i>
-                            <!-- Text -->
-                            <p>{{ page.award_four_details|richtext }}</p>
-                        </div>
-                    </div>
-                </div><!--services col-->
-                <div class="col-md-3 col-sm-6 margin20">
-                    <div class="s-feature-box text-center">
-                        <div class="mask-top">
-                            <!-- Icon -->
-                            <i class="fa fa-trophy"></i>
-                            <!-- Title -->
-                            <h4>{{ page.award_five_name|richtext }}</h4>
-                        </div>
-                        <div class="mask-bottom">
-                            <!-- Icon -->
-                            <i class="fa fa-trophy"></i>
-                            <!-- Text -->
-                            <p>{{ page.award_five_details|richtext }}</p>
-                        </div>
-                    </div>
-                </div><!--services col-->
-                <div class="col-md-3 col-sm-6 margin20">
-                    <div class="s-feature-box text-center">
-                        <div class="mask-top">
-                            <!-- Icon -->
-                            <i class="fa fa-trophy"></i>
-                            <!-- Title -->
-                            <h4>{{ page.award_six_name|richtext }}</h4>
-                        </div>
-                        <div class="mask-bottom">
-                            <!-- Icon -->
-                            <i class="fa fa-trophy"></i>
-                            <!-- Text -->
-                            <p>{{ page.award_six_details|richtext }}</p>
-                        </div>
-                    </div>
-                </div><!--services col-->                                                                
-
+                </div>
+                {% endfor %}                                                         
             </div>
         </div>
         <div class='bg-faded pt100 pb100'>
@@ -397,39 +306,34 @@
                         Small Disadvantaged Business<br>
                         DUNS Number: 153887773<br>
                         CAGE Code: 0NCB3</p>
-                        <a href="#" class="btn btn-white-outline btn-sm">Learn More</a>
+                        <a href="/about/#" class="btn btn-white-outline btn-sm">Learn More</a>
                     </div>
                     <div class="col-lg-2 col-md-6 mb40">
                         <h3>Quick links</h3>
                         <ul class="list-unstyled footer-list-item">
                             <li>
-                                <a href="#">
+                                <a href="/about/#">
                                     About
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    News
+                                <a href="/services/#">
+                                    Services
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    FAQS
+                                <a href="/careers/#">
+                                    Careers
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="/contact/#">
                                     Contact
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
-                                    Term & conditions
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Privacy & policy
+                                <a href="/cyber-incubator/#">
+                                    Cyber Incubator
                                 </a>
                             </li>
                         </ul>
@@ -440,7 +344,7 @@
                             <li class="media">
                                 <a href="#"> <img class="d-flex mr-3 img-fluid" width="64" src={% static 'images/img1.jpg' %} alt="Generic placeholder image"></a>
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1"><a href="#">Beautiful Sofa lamp at low price</a></h5>
+                                    <h5 class="mt-0 mb-1"><a href="#">Placeholder News</a></h5>
                                     April 05, 2017
                                 </div>
                             </li>
@@ -454,14 +358,14 @@
                             <li class="media">
                                 <a href="#"> <img class="d-flex mr-3 img-fluid" width="64" src={% static 'images/img5.jpg' %} alt="Generic placeholder image"></a>
                                 <div class="media-body">
-                                    <h5 class="mt-0 mb-1"><a href="#">New awesome features of bootstrap 4</a></h5>
+                                    <h5 class="mt-0 mb-1"><a href="#">We just keep winning</a></h5>
                                     March 15, 2017
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <div class="col-lg-3 col-md-6 mb40">
-                        <h3>Headquarters</h3>
+                        <h3>Offices</h3>
                         <img src={% static 'images/map-img.png' %} alt="" class="img-fluid">
                     </div>
                 </div>
