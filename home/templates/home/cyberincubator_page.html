@@ -139,7 +139,7 @@
                                 <li><a href="/cyber-incubator/#" class="dropdown-item">Program Overview</a></li>
                                 <li><a href="/cyber-incubator/#description" class="dropdown-item">Internship Description</a></li>
                                 <li><a href="/cyber-incubator/#expectations" class="dropdown-item">Participant Expectations</a></li>
-                                <li><a href="/cyber-incubator/#expectations" class="dropdown-item">Program Benefits</a></li>
+                                <li><a href="/cyber-incubator/#programbenefits" class="dropdown-item">Program Benefits</a></li>
                             </ul>
                         </li> 
                     </ul>        
@@ -172,9 +172,7 @@
                     <div class="title-heading1 mb30" style="margin-bottom: 1rem !important">
                         <h3>Advance Your Cybersecurity Skills</h3>                      
                     </div>
-                    <div class='text-center'>
                         {{ page.cyber_incubator_blurb|richtext }}
-                    </div>
                 </div>
             </div>
         </div>
@@ -213,7 +211,7 @@
                         </div>
                         <div class="media-body">
                             <a class="anchor" name="testmanagement"></a><h4 class="mt-0 mb10">{{ offerings.header }}</h4>
-                            <p>{{ offerings.description }}</p>
+                            <p>{{ offerings.description|richtext }}</p>
                         </div>
                     </div>
                 </div>
@@ -225,11 +223,11 @@
             <div class='row'>
                 <div class='col-lg-10 ml-auto mr-auto'>
                     <div class="title-heading1 mb30" style="margin-bottom: 1rem !important">
-                        <a class="anchor" name="profile"></a><h3>Participant Expectations</h3>  
+                        <a class="anchor" name="expectations"></a><h3>Participant Expectations</h3>  
                     </div>
-                    <div class='lead tritary-font mb50 text-center'>
+                    <p class='lead tritary-font mb50 text-center'>
                         {{ page.participant_expectations|richtext }}
-                    </div>
+                    </p>
                 </div>
             </div>
         </div>
@@ -238,11 +236,11 @@
             <div class='row'>
                 <div class='col-lg-10 ml-auto mr-auto'>
                     <div class="title-heading1 mb30" style="margin-bottom: 1rem !important">
-                        <a class="anchor" name="profile"></a><h3>Program Benefits</h3>  
+                        <a class="anchor" name="programbenefits"></a><h3>Program Benefits</h3>  
                     </div>
-                    <div class='lead tritary-font mb50 text-center'>
+                    <p class='lead tritary-font mb50 text-center'>
                         {{ page.program_benefits|richtext }}
-                    </div>
+                    </p>
                 </div>
             </div>
         </div>           

@@ -48,8 +48,8 @@ class AboutPageOffice(Orderable):
     page = ParentalKey(AboutPage, on_delete=models.CASCADE, related_name='office_locations')
     office_name = models.CharField(blank=True, max_length=250)
     office_address = RichTextField(blank=True)
-    office_phone = models.CharField(blank=True, max_length=16)
-    office_fax = models.CharField(blank=True, max_length=16)
+    office_phone = models.CharField(blank=True, max_length=25)
+    office_fax = models.CharField(blank=True, max_length=25)
 
     panels = [
         FieldPanel('office_name'),
@@ -238,8 +238,8 @@ class CyberincubatorPage(Page):
 class CyberincubatorPageInternshipDescriptions(Orderable):
     page = ParentalKey(CyberincubatorPage, on_delete=models.CASCADE, related_name='cyberincubator_internship_descriptions')
     header = models.CharField(blank=True, max_length=250)
-    description = models.TextField(blank=True, max_length=500)
-    icon_code = models.CharField(blank=True, max_length=16)
+    description = RichTextField(blank=True, max_length=500)
+    icon_code = models.CharField(blank=True, max_length=25)
 
     panels = [
         FieldPanel('header'),
